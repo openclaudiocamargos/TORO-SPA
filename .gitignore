@@ -1,13 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#cypress
-/tests/node_modules
-/tests/cypress/plugins
-/tests/cypress/support
-/tests/cypress/videos
-/tests/cypress/fixtures
-
-
 # compiled output
 /dist
 /tmp
@@ -20,7 +12,6 @@
 
 # profiling files
 chrome-profiler-events*.json
-speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -52,6 +43,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# environments
-/src/environments/**
