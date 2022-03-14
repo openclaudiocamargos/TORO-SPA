@@ -1,27 +1,36 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
     </button>
     <span>Painel Toro</span>
     <span class="example-spacer"></span>
-    <button>
-        {{ userInformations?.firstName }}
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
+    <div>
+        <span class="font-weight-light">Saldo em conta: </span>
+        <span class="font-weight-light">{{ userInformationsService.userInformations.accountAmount }}</span>
+    </div>
+    <button mat-icon-button (click)="refreshUserInformations()">
+        <mat-icon>refresh</mat-icon>
     </button>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
     <button mat-menu-item>
         <a routerLink="/servicos/home" routerLinkActive="active">
-        <mat-icon>dialpad</mat-icon>
+        <mat-icon>home</mat-icon>
         <span>Home</span></a>
     </button>
     <button mat-menu-item>
         <a routerLink="/servicos/trends" routerLinkActive="active">            
-        <mat-icon>voicemail</mat-icon>
+        <mat-icon>show_chart</mat-icon>
         <span>Topis Trends</span></a>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>attach_money</mat-icon>
+        <span>Realizar PIX</span>
+    </button>
+    <button mat-menu-item>        
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sair</span>
     </button>
 </mat-menu>
 <router-outlet></router-outlet>

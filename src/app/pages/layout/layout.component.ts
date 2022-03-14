@@ -10,16 +10,14 @@ import { UserInformationsService } from 'src/app/core/services/auth/user-informa
 })
 export class LayoutComponent implements OnInit {
 
-  public userInformations: UserInformationsResponse = null!;
-
   constructor(public userInformationsService: UserInformationsService) { }
 
   ngOnInit(): void {
+    this.refreshUserInformations()
+  }
+
+  refreshUserInformations() {
     this.userInformationsService.getInformations().subscribe();
-    this.userInformationsService.userInformation.subscribe((user: UserInformationsResponse) => {
-      if (user != null)
-        this.userInformations = user;
-    });
   }
 
 }

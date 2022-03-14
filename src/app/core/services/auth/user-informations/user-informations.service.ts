@@ -12,7 +12,7 @@ import { UserInformationsResponse } from './user-informations-response';
 })
 export class UserInformationsService extends BaseServiceService {
   
-  userInformation = new BehaviorSubject<UserInformationsResponse>(null!);
+  public userInformations!: UserInformationsResponse;
 
   constructor(private http: HttpClient) {
     super();
@@ -26,7 +26,7 @@ export class UserInformationsService extends BaseServiceService {
           return this.errorHandler(error)
         }),
         tap((resData) => {
-          this.userInformation.next(resData);
+          this.userInformations = resData;
         })        
     );
   }
