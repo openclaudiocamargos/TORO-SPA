@@ -19,6 +19,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CardPositionComponent } from './pages/home/components/cardPosition/card-position.component';
 import {MatCardModule} from '@angular/material/card';
+import { TrendsTopicComponent } from './pages/trends-topic/trends-topic.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatCardModule} from '@angular/material/card';
     HomeComponent,
     NotfoundComponent,
     LayoutComponent,
-    CardPositionComponent    
+    CardPositionComponent,
+    TrendsTopicComponent    
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import {MatCardModule} from '@angular/material/card';
     MatMenuModule,
     MatToolbarModule,
     MatCardModule,
+    BrowserAnimationsModule,
     SharedModule.forRoot()
   ],
   providers: [
