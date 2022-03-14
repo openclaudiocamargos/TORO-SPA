@@ -1,5 +1,6 @@
 const paths = {
     users: {
+        GetInformation: 'Users',
         PostLogin: 'Users/Login',
         PostCreate: 'Users/Create',
     },

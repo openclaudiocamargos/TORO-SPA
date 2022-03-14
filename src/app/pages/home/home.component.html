@@ -1,1 +1,3 @@
-<p>home works!</p>
+<div *ngIf="patrimony != null" class="d-flex flex-wrap">
+    <app-card-position class="p-2" *ngFor="let position of patrimony.positions" [patrimonyPosition]="position"></app-card-position>
+</div>
