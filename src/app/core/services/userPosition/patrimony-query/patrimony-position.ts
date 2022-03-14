@@ -1,5 +1,5 @@
 export interface PatrimonyPosition {
-  synbol: string;
+  symbol: string;
   amount: number;
-  CurrentPrice: number;  
+  currentPrice: number;  
 }

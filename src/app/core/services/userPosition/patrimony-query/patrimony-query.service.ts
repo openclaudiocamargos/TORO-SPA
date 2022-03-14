@@ -24,7 +24,4 @@ export class PatrimonyQueryService extends BaseServiceService {
         })
     );
   }
-  errorHandler(error: any): any {
-    throw new Error('Method not implemented.');
-  }
 }

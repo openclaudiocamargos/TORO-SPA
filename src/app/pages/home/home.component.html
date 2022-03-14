@@ -1,1 +1,3 @@
-<p>home works!</p>
+<div *ngIf="patrimony != null">
+    <app-card-position *ngFor="let position of patrimony.positions" [patrimonyPosition]="position"></app-card-position>
+</div>

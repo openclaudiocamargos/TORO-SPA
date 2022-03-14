@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CardPositionComponent } from './pages/home/components/cardPosition/card-position.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LoginComponent,
     HomeComponent,
     NotfoundComponent,
-    LayoutComponent    
+    LayoutComponent,
+    CardPositionComponent    
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
+    MatCardModule,
     SharedModule.forRoot()
   ],
   providers: [
