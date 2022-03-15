@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError } from 'rxjs/operators';
 import { CentralNotifyService } from 'src/app/shared/services/central-notify.service';
 import { environment } from 'src/environments/environment';
 import { BaseServiceService } from '../../base-service.service';
 import paths from '../../paths';
-import { PatrimonyResponse } from './patrimony-response';
+import { TrendTop } from './trend-top';
+import { TrendsTopRequest } from './trend-top-request';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PatrimonyQueryService extends BaseServiceService {
+export class TrendsTopQueryService extends BaseServiceService  {
 
   constructor(private http: HttpClient, protected centralNotifyService: CentralNotifyService) {
     super(centralNotifyService);
   }
 
-  public getPatrimony() {
+  public getTrendTop(request: TrendsTopRequest) {
     return this.http
-      .get<PatrimonyResponse>(`${environment.api_domain}${paths.userPositions.getPatrimony}`)
+      .get<TrendTop[]>(`${environment.api_domain}${paths.positions.getTrendsTop}?LimitPositions=${request.limitPositions}&OperationType=${request.operationType}`)
       .pipe(
         catchError((error) => {
           return this.errorHandler(error)

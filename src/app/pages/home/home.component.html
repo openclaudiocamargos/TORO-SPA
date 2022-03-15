@@ -1,17 +1,17 @@
-<div *ngIf="patrimony != null">
+<div *ngIf="patrimony != null && userInformationsService.userInformations != null">
     <mat-toolbar color="primary">
         <div>
             <span class="font-weight-light">Patrimônio: </span>
-            <span class="font-weight-light">{{ patrimony.consolidated }}</span>
+            <span class="font-weight-light">{{ TotalPositions + userInformationsService.userInformations.accountAmount }}</span>
         </div>
         <span class="example-spacer"></span>
         <div>
             <span class="font-weight-light">Saldo em ações: </span>
-            <span class="font-weight-light">{{ patrimony.consolidated - userInformationsService.userInformations.accountAmount }}</span>
+            <span class="font-weight-light">{{ TotalPositions }}</span>
         </div>
     </mat-toolbar>
     <div class="d-flex flex-wrap">
-        <app-card-position class="p-2" *ngFor="let position of patrimony.positions" [patrimonyPosition]="position">
-        </app-card-position>
+        <app-card-user-position class="p-2" *ngFor="let position of patrimony.positions" [patrimonyPosition]="position">
+        </app-card-user-position>
     </div>    
 </div>

@@ -6,7 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from '../services/auth/login/auth.service';
+import { AuthService } from '../services/users/login/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -17,7 +17,6 @@ export class AuthInterceptor implements HttpInterceptor {
       take(1),
       exhaustMap((user) => {        
         if (req.url.match(environment.api_domain)) {
-          console.log('interceptou', user)
           req = req.clone({
             setHeaders: {
               Authorization: `Bearer ${user?.token}`,

@@ -8,6 +8,7 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { LoginResponse } from './login-response';
 import { User } from '../../../data/models/auth/user';
 import { BaseServiceService } from '../../base-service.service';
+import { CentralNotifyService } from 'src/app/shared/services/central-notify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class AuthService extends BaseServiceService {
   
   user = new BehaviorSubject<User>(null!);
   
-  constructor(private http: HttpClient) {
-    super();
+  constructor(private http: HttpClient, protected centralNotifyService: CentralNotifyService) {
+    super(centralNotifyService);
   }
 
   public login(credentials: Credentials) {

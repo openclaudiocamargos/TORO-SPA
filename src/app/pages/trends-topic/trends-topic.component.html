@@ -1,1 +1,12 @@
-<p>trends-topic works!</p>
+<div>
+    <h2>Compras</h2>
+    <div class="d-flex flex-wrap">
+        <app-card-trend-top class="p-2" *ngFor="let trendTop of TrendTopBuy" [trendTop]="trendTop">
+        </app-card-trend-top>
+    </div>
+    <h2>Vendas</h2>
+    <div class="d-flex flex-wrap">
+        <app-card-trend-top class="p-2" *ngFor="let trendTop of TrendTopSell" [trendTop]="trendTop">
+        </app-card-trend-top>
+    </div>
+</div>
