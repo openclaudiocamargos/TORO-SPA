@@ -2,11 +2,11 @@
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>Painel Toro</span>
+    <span>{{ title }}</span>
     <span class="example-spacer"></span>
     <div>
         <span class="font-weight-light">Saldo em conta: </span>
-        <span class="font-weight-light">{{ userInformationsService.userInformations.accountAmount }}</span>
+        <span class="font-weight-light">{{ userInformationsService.userInformations?.accountAmount ?? '-' }}</span>
     </div>
     <button mat-icon-button (click)="refreshUserInformations()">
         <mat-icon>refresh</mat-icon>
@@ -20,15 +20,17 @@
         <span>Home</span></a>
     </button>
     <button mat-menu-item>
-        <a routerLink="/servicos/trends" routerLinkActive="active">            
-        <mat-icon>show_chart</mat-icon>
-        <span>Topis Trends</span></a>
+        <a routerLink="/servicos/positions" routerLinkActive="active">
+            <mat-icon>show_chart</mat-icon>
+            <span>Positions</span>
+        </a>
     </button>
     <button mat-menu-item>
-        <mat-icon>attach_money</mat-icon>
-        <span>Realizar PIX</span>
+        <a routerLink="/servicos/trends" routerLinkActive="active">            
+        <mat-icon>show_chart</mat-icon>
+        <span>Top Trends</span></a>
     </button>
-    <button mat-menu-item>        
+    <button mat-menu-item (click)="signOut()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Sair</span>
     </button>

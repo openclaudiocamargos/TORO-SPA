@@ -23,7 +23,7 @@
 
         <p>
             <input *ngIf="!loading" type="submit" value="Log in">
-            <mat-spinner *ngIf="loading"></mat-spinner>
+            <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
         </p>
     </form>
 </div>

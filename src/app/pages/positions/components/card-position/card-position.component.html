@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{ position.symbol }}</mat-card-title>
+        <mat-card-subtitle>{{position.currentPrice | currency:"BRL":"symbol"}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="image" [src]="positionImageServiceService.imageSymbol(position.symbol)">
+    <mat-card-actions>
+        <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+        <button mat-button *ngIf="!loading" (click)="openDialog()">COMPRAR</button>
+    </mat-card-actions>
+</mat-card>

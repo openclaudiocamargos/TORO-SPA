@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div>
+    <form [formGroup]="dialogValueForm" class="login-container" (ngSubmit)="onOkClick()">
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.value.errors }">
+            <input [type]="data.type" placeholder="Valor" formControlName="value">
+        </p>
+
+        <div *ngIf="isSubmitted && formControls.value.errors" class="help-block">
+            <div *ngIf="formControls.value.errors.required">Informe o valor</div>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button type="submit">Confirmar</button>
+            <button mat-button type="button" (click)="onNoClick()">Cancelar</button>
+        </div>
+    </form>
+</div>

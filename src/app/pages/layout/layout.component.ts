@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/services/auth/login/auth.service';
-import { UserInformationsResponse } from 'src/app/core/services/auth/user-informations/user-informations-response';
-import { UserInformationsService } from 'src/app/core/services/auth/user-informations/user-informations.service';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/users/login/auth.service';
+import { UserInformationsService } from 'src/app/core/services/users/user-information/user-informations.service';
 
 @Component({
   selector: 'app-layout',
@@ -10,7 +11,11 @@ import { UserInformationsService } from 'src/app/core/services/auth/user-informa
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(public userInformationsService: UserInformationsService) { }
+  constructor(public userInformationsService: UserInformationsService,
+    private router: Router,
+    private authService: AuthService,
+    private titleService: Title
+  ) { }
 
   ngOnInit(): void {
     this.refreshUserInformations()
@@ -18,6 +23,15 @@ export class LayoutComponent implements OnInit {
 
   refreshUserInformations() {
     this.userInformationsService.getInformations().subscribe();
+  }
+
+  get title() {
+    return this.titleService.getTitle()
+  }
+
+  signOut() {
+    this.authService.logout();
+    this.router.navigate(['login']); 
   }
 
 }

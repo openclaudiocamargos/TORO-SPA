@@ -1,15 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
+import { CentralNotifyService } from 'src/app/shared/services/central-notify.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseServiceService {
 
-  constructor() { }
+  erroPadrao = "ops! Verifique os dados e tente novamente.";
 
-  public errorHandler(errorRes: any) {
-    return throwError(errorRes.error.detail);
+  constructor(protected centralNotifyService: CentralNotifyService) { }
+
+  public errorHandler(errorRes: any) {    
+    let message = errorRes.error != null ? errorRes.error.detail ?? this.erroPadrao : this.erroPadrao
+    this.centralNotifyService.errorInformation.next(message);
+    return throwError(errorRes.error.detail);    
   }
 }
